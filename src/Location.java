@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,6 +10,12 @@ public class Location {
 	private String name;
 	private List<Roll> options;
 	
+	public Location(String path) throws FileNotFoundException {
+		this(new File(path));
+	}
+	public Location(File file) throws FileNotFoundException {
+		this(file.getName(), new Scanner(file));
+	}
 	public Location(String name, Scanner input) {
 		this.name = name;
 		this.options = new ArrayList<Roll>();
