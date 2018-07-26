@@ -6,7 +6,15 @@ button {
 	border: 1px solid black;
 }
 
-strong {
+h1 {
+	font-weight: normal;
+}
+
+h1 > strong {
+	font-weight: bold;
+}
+
+li > strong {
 	font-size: 14pt;
 }
 
