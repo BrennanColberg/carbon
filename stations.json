@@ -1,0 +1,200 @@
+[
+	{
+		"name" : "Atmosphere",
+		"rolls" : [
+			{
+				"destination" : "Atmosphere",
+				"weight" : 3,
+				"messages" : [
+					"You stay in the atmosphere as CO2."
+				]
+			},
+			{
+				"destination" : "Plant",
+				"weight" : 2,
+				"messages" : [
+					"You are taken up by a plant in photosynthesis and become glucose (C6H1206)"
+				]
+			},
+			{
+				"destination" : "Surface Ocean",
+				"weight" : 1,
+				"messages" : [
+					"You are jostled by wind and wave action and dissolve in seawater."
+				]
+			}
+		]
+	},
+	{
+		"name" : "Soil",
+		"rolls" : [
+			{
+				"destination" : "Soil",
+				"weight" : 2,
+				"messages" : [
+					"You are CO2 in soil air.",
+					"You are a carbon compound within detritus."
+				]
+			},
+			{
+				"destination" : "Plant",
+				"weight" : 1,
+				"messages" : [
+					"You are taken in by a plan doing photosynthesis."
+				]
+			},
+			{
+				"destination" : "Fossil Fuels",
+				"weight" : 2,
+				"messages" : [
+					"You are part of dead plant tissue, become trapped in anoxic soil, and with high temperature and pressure you become a fossil fuel."
+				]
+			},
+			{
+				"destination" : "Atmosphere",
+				"weight" : 1,
+				"messages" : [
+					"You diffuse into the sky on a warm breeze."
+				]
+			}
+		]
+	},
+	{
+		"name" : "Plant",
+		"rolls" : [
+			{
+				"destination" : "Soil",
+				"weight" : 1,
+				"messages" : [
+					"You are in a leaf, but the tree sheds all its leaves."
+				]
+			},
+			{
+				"destination" : "Plant",
+				"weight" : 3,
+				"messages" : [
+					"You are in the cellulose within the xylem in a tree trunk.",
+					"You are in starch within the cytoplasm of a root cell in a tree.",
+					"You are in sucrose (C12H22O11) within the phloem in a tree branch."
+				]
+			},
+			{
+				"destination" : "Animal",
+				"weight" : 1,
+				"messages" : [
+					"You are in glucose (C6H12O6) within a fruit and that fruit is eaten by an animal"
+				]
+			},
+			{
+				"destination" : "Atmosphere",
+				"weight" : 1,
+				"messages" : [
+					"You were glucose (C6H12O6) in the leaf, but the leaf cell respired and now you're CO2."
+				]
+			}
+		]
+	},
+	{
+		"name" : "Deep Ocean",
+		"rolls" : [
+			{
+				"destination" : "Deep Ocean",
+				"weight" : 2,
+				"messages" : [
+					"You stay in the deep ocean."
+				]
+			},
+			{
+				"destination" : "Surface Ocean",
+				"weight" : 3,
+				"messages" : [
+					"You join an upwelling current."
+				]
+			},
+			{
+				"destination" : "Animal",
+				"weight" : 1,
+				"messages" : [
+					"You are swallowed by a dolphin."
+				]
+			}
+		]
+	},
+	{
+		"name" : "Fossil Fuels",
+		"rolls" : [
+			{
+				"destination" : "Fossil Fuels",
+				"weight" : 4,
+				"messages" : [
+					"You are methane (CH4).",
+					"You are crude oil, a mixture of substances that is about 85% carbon.",
+					"You are coal (C137H97O9).",
+					"You are in peat, a mixture of substances that is 48-63% carbon."
+				]
+			},
+			{
+				"destination" : "Atmosphere",
+				"weight" : 2,
+				"messages" : [
+					"You are pumped out of the ground by humans, burned in a car engine, and are now CO2.",
+					"You became rock, underwent subduction, melted, and after a volcanic eruption on Hawaii emerge as CO2."
+				]
+			}
+		]
+	},
+	{
+		"name" : "Surface Ocean",
+		"rolls" : [
+			{
+				"destination" : "Deep Ocean",
+				"weight" : 2,
+				"messages" : [
+					"You join a downwelling current.",
+					"You were in a protein within an organism that died and sank to the bottom of the ocean."
+				]
+			},
+			{
+				"destination" : "Surface Ocean",
+				"weight" : 2,
+				"messages" : [
+					"You are floating in a calm sea."
+				]
+			},
+			{
+				"destination" : "Atmosphere",
+				"weight" : 2,
+				"messages" : [
+					"You move up into the atmosphere with wind and wave action."
+				]
+			}
+		]
+	},
+	{
+		"name" : "Animal",
+		"rolls" : [
+			{
+				"destination" : "Animal",
+				"weight" : 2,
+				"messages" : [
+					"You are part of a lipid molecule in adipose tissue.",
+					"You are part of a food chain because a predator eats the animal you are in."
+				]
+			},
+			{
+				"destination" : "Soil",
+				"weight" : 1,
+				"messages" : [
+					"You are in a carcass in the ground, as the animal that ate you died."
+				]
+			},
+			{
+				"destination" : "Atmosphere",
+				"weight": 3,
+				"messages" : [
+					"You are exhaled as CO2, because the animal that consumed you did cellular respiration."
+				]
+			}
+		]
+	}
+]
