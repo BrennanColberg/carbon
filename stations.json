@@ -13,7 +13,7 @@
     "destination" : "Plant",
     "weight" : 2,
     "messages" : [
-     "You are taken up by a plant in photosynthesis and become glucose (C6H1206)"
+     "You are taken up by a plant in photosynthesis and become glucose (C6H1206)."
     ]
    },
    {
@@ -82,7 +82,7 @@
     "destination" : "Animal",
     "weight" : 1,
     "messages" : [
-     "You are in glucose (C6H12O6) within a fruit and that fruit is eaten by an animal"
+     "You are in glucose (C6H12O6) within a fruit, and that fruit is eaten by an animal."
     ]
    },
    {
