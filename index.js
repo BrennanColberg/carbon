@@ -6,6 +6,9 @@
 	let locations = undefined;
 	let index = undefined;
 	
+	/**
+	 * Connects up buttons, queries for a JSON from which to load information.
+	 */
 	window.addEventListener("load", function() {
 		
 		ajaxGET("stations.json", load);
@@ -14,6 +17,10 @@
 		
 	});
 	
+	/**
+	 * Gets locations from the text of stations.json and starts the program.
+	 * @param {String} json Contents of the JSON file
+	 */
 	function load(json) {
 		locations = JSON.parse(json);
 		goTo(startingIndex());
@@ -21,32 +28,53 @@
 		$("next").disabled = false;
 	}
 	
+	/**
+	 * Chooses a location randomly in which to start the program.
+	 * @return {Number} Integer (index) in bounds [0, locations.length - 1]
+	 */
 	function startingIndex() {
 		return Math.floor(Math.random() * locations.length);
 	}
 	
+	/**
+	 * Moves the user to a new location.
+	 * @param {Number} newIndex Index of the targeted location.
+	 */
 	function goTo(newIndex) {
 		index = newIndex;
 		$("location").textContent = locations[index].name;
 	}
 	
+	/**
+	 * Logs an event to the history list.
+	 * @param {String} name Name of the location to log
+	 * @param {[[type]]} message Narrative text to explain movement (optional)
+	 */
 	function logHistory(name, message) {
 		let history = $("history");
+		// only creates a message if one is given (allows for starting location)
+		// appends message first due to being a fencepost-based system where you
+		// do not yet know how the program will move on
 		if (message) {
+			// creates second-tier UL for the description with a single li
+			// inside (which contains the message)
 			let ul = ce("ul");
-			let liMessage = ce("li");
-			let messageText = ctn(" " + message);
-			liMessage.appendChild(messageText);
-			ul.appendChild(liMessage);
+			ul.appendChild(ce("li", message));
 			history.lastChild.appendChild(ul);
 		}
+		// puts name, in bold (strong), inside the history ol
 		let liName = ce("li");
 		let locationSpan = ce("strong", name);
 		liName.appendChild(locationSpan);
 		history.appendChild(liName);
+		// scrolls to bottom of history (otherwise it wouldn't display properly)
 		history.scrollTop = history.scrollHeight;
 	}
 	
+	/**
+	 * Moves onwards in time, taking a random step to move towards a different
+	 * location (or, sometimes, to stay in the same location).
+	 */
 	function proceed() {
 		let roll = randomRoll(locations[index]);
 		let message = randomMessage(roll);
@@ -54,6 +82,12 @@
 		logHistory(roll.destination, message);
 	}
 	
+	/**
+	 * Selects a random location from the potential destinations of a carbon
+	 * atom when travelling away from the given location.
+	 * @param {Object} location Location which the user is currently at
+	 * @returns {Object} Chosen roll event
+	 */
 	function randomRoll(location) {
 		let rolls = location.rolls;
 		let totalWeight = 0;
@@ -69,10 +103,21 @@
 		}
 	}
 	
+	/**
+	 * Chooses a random description for the movement about to occur (as
+	 * prescribed by the given roll).
+	 * @param {Object} roll Roll event
+	 * @return {String} Chosen message
+	 */
 	function randomMessage(roll) {
 		return roll.messages[Math.floor(roll.messages.length * Math.random())];
 	}
 	
+	/**
+	 * Gets index of a given location in the stored data.
+	 * @param {Object} location Location of which to find index
+	 * @return {Number} Integer index
+	 */
 	function locationIndex(location) {
 		for (let i = 0; i < locations.length; i++) {
 			if (locations[i].name === location) {
