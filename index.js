@@ -1,7 +1,14 @@
+/**
+ * This JavaScript file manages the location that a user is current at, as well
+ * as trigger events that change that state.
+ * 
+ * @author Brennan Colberg
+ * @lastmodifiedDate September 27, 2018
+ * @createDate July 26, 2018
+ */
+
 "use strict";
 !function() {
-	
-	// uses brennancolberg/jsdb for abbreviated and AJAX functions
 	
 	let locations = undefined;
 	let index = undefined;
@@ -10,11 +17,8 @@
 	 * Connects up buttons, queries for a JSON from which to load information.
 	 */
 	window.addEventListener("load", function() {
-		
 		ajaxGET("stations.json", load);
-		
 		$("next").onclick = proceed;
-		
 	});
 	
 	/**
@@ -84,20 +88,28 @@
 	
 	/**
 	 * Selects a random location from the potential destinations of a carbon
-	 * atom when travelling away from the given location.
+	 * atom when travelling away from the given location. Accounts for precise
+	 * decimal weighting of various options, proportionally.
 	 * @param {Object} location Location which the user is currently at
 	 * @returns {Object} Chosen roll event
 	 */
 	function randomRoll(location) {
-		let rolls = location.rolls;
+		let rolls = location.rolls; // array of potentially returned objects
+		// tracks total "weight" of various answers (needs total to increment
+		// to figure out which is selected
 		let totalWeight = 0;
 		for (let i = 0; i < rolls.length; i++) {
 			totalWeight += rolls[i].weight;
 		}
+		// chooses random point within the total weight
 		let chosenWeight = Math.random() * totalWeight;
+		// cycles through potential options' weights in order, to see in which
+		// weight "region" the chosen point falls (this way, larger weights are
+		// made more likely -- they're given a larger "area" in which the point
+		// can potentially fall!)
 		for (let i = 0; i < rolls.length; i++) {
 			chosenWeight -= rolls[i].weight;
-			if (chosenWeight < 0) {
+			if (chosenWeight <= 0) {
 				return rolls[i];
 			}
 		}
