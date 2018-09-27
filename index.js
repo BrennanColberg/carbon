@@ -10,15 +10,62 @@
 "use strict";
 !function() {
 	
+	
+	/**** VARIABLES ****/
+	
 	let locations = undefined;
 	let index = undefined;
+	
+	
+	/***** GENERAL TOOLBOX METHODS *****/
+	
+	/**
+	 * Boilerplate AJAX GET method, used to query for server files.
+	 * @param {String} url Target URL to query
+	 * @param {Function} onSuccess Function to call when the request comes in
+	 */
+	function ajaxGET(url, onSuccess) {
+		fetch(url, { credentials: "include" })
+			.then(function(r) { 
+				if (r.status >= 200 && r.status < 300) return r.text();
+				else return Promise.reject(
+					new Error(r.status + ": " + r.statusText)
+				);
+			})
+			.then(onSuccess)
+			.catch(console.log);
+	}
+	
+	/**
+	 * DOM element creation shortcut.
+	 * @param {String} tag HTML tag of the new element
+	 * @param {String} text Text to put within the new element (optional)
+	 * @return {Object} Generated DOM element
+	 */
+	function ce(tag, text) {
+		let element = document.createElement(tag);
+		if (text) element.textContent = text;
+		return element;
+	}
+	
+	/**
+	 * DOM element selection shortcut, inspired by jQuery.
+	 * @param {String} selector CSS selector to query with
+	 * @return {Object} Selected DOM element
+	 */
+	function $(selector) {
+		return document.querySelector(selector);
+	}
+	
+	
+	/***** APPLICATION-SPECIFIC METHODS *****/
 	
 	/**
 	 * Connects up buttons, queries for a JSON from which to load information.
 	 */
 	window.addEventListener("load", function() {
 		ajaxGET("stations.json", load);
-		$("next").onclick = proceed;
+		$("#next").onclick = proceed;
 	});
 	
 	/**
@@ -29,7 +76,7 @@
 		locations = JSON.parse(json);
 		goTo(startingIndex());
 		logHistory(locations[index].name);
-		$("next").disabled = false;
+		$("#next").disabled = false;
 	}
 	
 	/**
@@ -46,7 +93,7 @@
 	 */
 	function goTo(newIndex) {
 		index = newIndex;
-		$("location").textContent = locations[index].name;
+		$("#location").textContent = locations[index].name;
 	}
 	
 	/**
@@ -55,7 +102,7 @@
 	 * @param {[[type]]} message Narrative text to explain movement (optional)
 	 */
 	function logHistory(name, message) {
-		let history = $("history");
+		let history = $("#history");
 		// only creates a message if one is given (allows for starting location)
 		// appends message first due to being a fencepost-based system where you
 		// do not yet know how the program will move on
