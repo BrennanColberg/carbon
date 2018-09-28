@@ -54,7 +54,8 @@
 	 * @return {Object} Selected DOM element
 	 */
 	function $(selector) {
-		return document.querySelector(selector);
+		let result = document.querySelectorAll(selector);
+		return result.length > 1 ? result : result[0];
 	}
 	
 	
@@ -93,7 +94,7 @@
 	 */
 	function goTo(newIndex) {
 		index = newIndex;
-		$("#location").textContent = locations[index].name;
+		updateInformation();
 	}
 	
 	/**
@@ -184,6 +185,17 @@
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * Fills all elements in the #travel div with information about the current
+	 * and recent locations.
+	 */
+	function updateInformation() {
+		let location = $(".location");
+		for (let i = 0; i < location.length; i++) {
+			location[i].textContent = locations[index].name;
+		}
 	}
 	
 }();
