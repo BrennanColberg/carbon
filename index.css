@@ -51,3 +51,7 @@ footer {
 	text-align: right;
 	font-family: monospace;
 }
+
+.hidden {
+	display: none;
+}

@@ -1,17 +1,41 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>The Carbon Cycle</title>
-		<link href="index.css" rel="stylesheet" />
-		<script src="index.js"></script>
-	</head>
-	<body>
-		<h1>Your carbon atom is in: <strong id="location"></strong></h1>
+
+<head>
+	<title>The Carbon Cycle</title>
+	<link href="index.css" rel="stylesheet" />
+	<script src="index.js"></script>
+</head>
+
+<body>
+
+	<section id="information">
+		<div id="travel">
+			<h1 class="start">
+				You're stuck inside some <strong class="location"></strong>!
+			</h1>
+			<h1 class="move hidden">
+				You moved from <span class="previousLocation"></span>
+				to <span class="location"></span>!
+			</h1>
+			<h1 class="stay hidden">
+				You stayed in <span class="location"></span>!
+			</h1>
+		</div>
+		<!--<div id="location-details">
+			
+		</div>-->
+	</section>
+
+	<section id="interaction">
 		<div id="next" class="noselect" disabled>Proceed onwards!</div>
 		<ol id="history"></ol>
 		<footer>
-			<p>based on a lesson by <strong>Jennifer Ceven</strong><br>
-				programmed by <strong>Brennan Colberg</strong></p>
+			<p>based on a lesson by <strong>Jennifer Ceven</strong></p>
+			<p>programmed by <strong>Brennan Colberg</strong></p>
 		</footer>
-	</body>
+	</section>
+
+</body>
+
 </html>
