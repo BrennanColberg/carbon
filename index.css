@@ -19,16 +19,51 @@ header {
 	padding: var(--dividers);
 }
 
-header h1 {
-	text-align: center;
+header p {
+	margin-bottom: 0px;
 }
 
-header img {
+header h1 {
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 40pt;
+	margin: 0px;
+}
+
+.element {
 	float: right;
 	height: 80px;
 	width: 80px;
-	border: 1px solid black;
+	border: 3px solid black;
 	margin-left: var(--dividers);
+	padding: 4px 6px;
+	box-sizing: border-box;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: bold;
+	background-color: #eee;
+}
+
+.element span {
+	display: block;
+	margin: 0px;
+}
+
+.element .number {
+	position: absolute;
+	font-size: 11pt;
+}
+
+.element .symbol {
+	font-size: 24pt;
+}
+
+.element .name {
+	font-size: 11pt;
+}
+
+.element .mass {
+	font-size: 9pt;
 }
 
 main {
