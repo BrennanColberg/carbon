@@ -1,1 +1,83 @@
+body {
+	margin: 0px;
+	background-color: blue;
+	text-align: justify;
+}
 
+body > * {
+	padding: 20px;
+	background-color: white;
+}
+
+.float-bottom {
+	clear: both;
+}
+
+header {
+	--dividers: 20px;
+	margin: 20px;
+	padding: var(--dividers);
+}
+
+header h1 {
+	text-align: center;
+}
+
+header img {
+	float: right;
+	height: 80px;
+	width: 80px;
+	border: 1px solid black;
+	margin-left: var(--dividers);
+}
+
+main {
+	margin: 100px 20vw;
+	padding: 20px;
+}
+
+main table {
+	vertical-align: text-top;
+}
+
+main td {
+	margin: 10px 0px;
+}
+
+main td * {
+	margin: 0px;
+}
+
+main td.title {
+	text-align: right;
+}
+
+main button {
+	display: block;
+}
+
+main #buttons {
+	display: flex;
+	justify-content: center;
+}
+
+main button {
+	margin: 10px;
+	font-size: 20pt;
+}
+
+footer {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+	padding: 0px;
+}
+
+footer ul {
+	list-style: none;
+}
+
+footer .name {
+	font-weight: bold;
+}
