@@ -116,6 +116,7 @@
 		result.process = message;
 		result.molecule = locations[index].molecule;
 		result.significance = locations[index].significance;
+		result.location = locations[index];
 		console.log(result);
 		history.unshift(result);
 	}
@@ -210,6 +211,8 @@
 		$(".molecule").textContent = location.molecule;
 		$(".process").textContent = location.process;
 		$(".significance").textContent = location.significance;
+		console.log($("body"));
+		$("body").style.backgroundImage = "url('" + location.location.image + "')";
 	}
 
 }();
