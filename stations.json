@@ -1,7 +1,7 @@
 [
  {
   "name": "Atmosphere",
-  "image": "https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5OS8wODgvb3JpZ2luYWwvQ2xvdWRzLmpwZw==",
+  "image": "http://jonvilma.com/images/sky-4.jpg",
   "rolls": [
    {
     "destination": "Atmosphere",
@@ -42,7 +42,7 @@
     "destination": "Plant",
     "weight": 1,
     "messages": [
-     "You are taken in by a plan doing photosynthesis."
+     "You are taken in by a plant doing photosynthesis."
     ]
    },
    {
@@ -63,6 +63,7 @@
  },
  {
   "name": "Plant",
+  "image": "https://kaggle2.blob.core.windows.net/competitions/kaggle/5408/media/bigleaves.jpg",
   "rolls": [
    {
     "destination": "Soil",
@@ -98,6 +99,7 @@
  },
  {
   "name": "Deep Ocean",
+  "image": "https://static1.squarespace.com/static/57157d427da24f6b3fa395e4/t/5a73ef49c8302552ab75a7a8/1517547345519/deep.jpg?format=1500w",
   "rolls": [
    {
     "destination": "Deep Ocean",
@@ -176,6 +178,7 @@
  },
  {
   "name": "Animal",
+  "image": "https://wp-assets.futurism.com/2017/09/pexels-photo-236044-1200x600.jpeg",
   "rolls": [
    {
     "destination": "Animal",

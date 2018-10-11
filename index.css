@@ -6,14 +6,20 @@
 
 body {
 	--dividers: 20px;
-	background-color: blue;
+	background-color: white;
 	text-align: justify;
-
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 100vh;
+	display: flex;
+	flex-flow: column nowrap;
 }
 
 body > * {
 	padding: var(--dividers);
-	background-color: white;
+	background-color: #eee;
+	border: 3px solid #ccc;
+	border-radius: 10px;
 }
 
 .float-bottom {
@@ -115,6 +121,10 @@ footer {
 	align-items: center;
 	font-family: monospace;
 	font-size: 10pt;
+	border-radius: 0;
+	border-right: none;
+	border-left: none;
+	margin-top: auto;
 }
 
 footer * {
