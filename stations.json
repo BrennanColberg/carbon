@@ -42,7 +42,8 @@
     "destination": "Plant",
     "weight": 1,
     "messages": [
-     "You are taken in by a plant doing photosynthesis."
+     "You are taken in by a plant doing photosynthesis.",
+     "You are absorbed through a plant's root system."
     ]
    },
    {
