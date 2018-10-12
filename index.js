@@ -61,6 +61,14 @@
 		return result.length > 1 ? result : result[0];
 	}
 
+	function show(dom) {
+		dom.classList.remove("hidden");
+	}
+
+	function hide(dom) {
+		dom.classList.add("hidden");
+	}
+
 
 	/***** APPLICATION-SPECIFIC METHODS *****/
 
@@ -207,10 +215,16 @@
 	function updateInformation() {
 		console.log(history);
 		let location = history[0];
-		$(".location").textContent = location.name;
-		$(".molecule").textContent = location.molecule;
-		$(".process").textContent = location.process;
-		$(".significance").textContent = location.significance;
+		$("p.location").textContent = location.name;
+		$("h2.process").textContent = location.process;
+		if (location.molecule) {
+			$("p.molecule").textContent = location.molecule;
+			show($("tr.molecule"));
+		} else hide($("tr.molecule"));
+		if (location.significance) {
+			$("p.significance").textContent = location.significance;
+			show($("tr.significance"));
+		} else hide($("tr.significance"));
 		console.log($("body"));
 		$("body").style.backgroundImage = "url('" + location.location.image + "')";
 	}
