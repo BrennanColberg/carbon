@@ -13,6 +13,8 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-flow: column nowrap;
+	align-items: center;
+	font-family: Georgia;
 }
 
 body > * {
@@ -28,6 +30,7 @@ body > * {
 
 header {
 	margin: var(--dividers);
+	max-width: 775px;
 }
 
 header h1 {
@@ -79,6 +82,7 @@ main {
 	--big-text: 20pt;
 	margin: 100px 20vw;
 	padding: 20px;
+	max-width: 500px;
 }
 
 main h2 {
@@ -125,6 +129,7 @@ footer {
 	border-right: none;
 	border-left: none;
 	margin-top: auto;
+	width: 100%;
 }
 
 footer * {
@@ -143,6 +148,10 @@ footer * {
 	font-family: "Oswald";
 	text-decoration: none;
 	font-size: 14pt;
+}
+
+#links a:hover {
+	text-decoration: underline;
 }
 
 .hidden {
