@@ -1,57 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+* {
+	margin: 0px;
+}
+
 body {
+	--dividers: 20px;
+	background-color: white;
+	text-align: justify;
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 100vh;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	font-family: Georgia;
+}
+
+body > * {
+	padding: var(--dividers);
+	background-color: #eee;
+	border: 3px solid #ccc;
+	border-radius: 10px;
+}
+
+.float-bottom {
+	clear: both;
+}
+
+header {
+	margin: var(--dividers);
+	max-width: 775px;
+}
+
+header h1 {
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 40pt;
+}
+
+header p {
+	margin-top: calc(var(--dividers) / 2);
+}
+
+.element {
+	float: right;
+	height: 80px;
+	width: 80px;
+	border: 3px solid black;
+	margin-left: var(--dividers);
+	padding: 4px 6px;
+	box-sizing: border-box;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: bold;
+	background-color: white;
+}
+
+.element span {
+	display: block;
+}
+
+.element .number {
+	position: absolute;
+	font-size: 11pt;
+}
+
+.element .symbol {
+	font-size: 24pt;
+}
+
+.element .name {
+	font-size: 11pt;
+}
+
+.element .mass {
+	font-size: 9pt;
+}
+
+main {
+	--big-text: 20pt;
+	margin: 100px 20vw;
+	padding: 20px;
+	max-width: 500px;
+}
+
+main h2 {
+	font-family: sans-serif;
+	font-size: var(--big-text);
+	text-align: center;
+}
+
+main table {
+	margin: var(--dividers) 0px;
+}
+
+main td {
+	margin: 10px 0px;
+}
+
+main td.title {
+	vertical-align: text-top;
+	text-align: right;
+	font-family: sans-serif;
+	padding-right: var(--dividers);
+}
+
+#buttons {
+	display: flex;
+	justify-content: center;
+}
+
+#buttons button {
+	display: block;
+	margin: 0px calc(var(--dividers) / 2);
+	font-size: var(--big-text);
 	font-family: sans-serif;
 }
 
-#next {
-	border: 3px solid black;
-	width: 25%;
+footer {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
 	font-family: monospace;
-	padding: 2px;
-	font-weight: bold;
-	font-size: 12pt;
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	user-select: none;
+	font-size: 10pt;
+	border-radius: 0;
+	border-right: none;
+	border-left: none;
+	margin-top: auto;
+	width: 100%;
 }
 
-/* code taken from https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
-.noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+footer * {
+	color: black;
 }
 
-h1 {
-	font-weight: normal;
+#credit {
 	text-align: center;
 }
 
-h1 > strong {
+#credit .name {
 	font-weight: bold;
 }
 
-li > strong {
+#links a {
+	font-family: "Oswald";
+	text-decoration: none;
 	font-size: 14pt;
 }
 
-#history {
-	overflow: auto;
-	height: 400px;
-	border: 1px solid black;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-footer {
-	text-align: right;
-	font-family: monospace;
+#links a:hover {
+	text-decoration: underline;
 }
 
 .hidden {
-	display: none;
+	display: none !important;
 }

@@ -1,132 +1,143 @@
 [
  {
-  "name" : "Atmosphere",
-  "rolls" : [
+  "name": "Atmosphere",
+  "image": "http://jonvilma.com/images/sky-4.jpg",
+  "significance": "Carbon atoms are stored here as carbon dioxide (CO2), which has a large effect on global temperatures despite only comprising 0.04% of the atmosphere.",
+  "rolls": [
    {
-    "destination" : "Atmosphere",
-    "weight" : 3,
-    "messages" : [
+    "destination": "Atmosphere",
+    "weight": 3,
+    "messages": [
      "You stay in the atmosphere as CO2."
     ]
    },
    {
-    "destination" : "Plant",
-    "weight" : 2,
-    "messages" : [
+    "destination": "Plant",
+    "weight": 2,
+    "messages": [
      "You are taken up by a plant in photosynthesis and become glucose (C6H1206)."
     ]
    },
    {
-    "destination" : "Surface Ocean",
-    "weight" : 1,
-    "messages" : [
+    "destination": "Surface Ocean",
+    "weight": 1,
+    "messages": [
      "You are jostled by wind and wave action and dissolve in seawater."
     ]
    }
   ]
  },
  {
-  "name" : "Soil",
-  "rolls" : [
+  "name": "Soil",
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2016/12/GettyImages-457102582-800x534.jpg",
+  "significance": "Dead organisms often end up in the soil, where they are broken down by decomposers. Contrary to common belief, plants get most of their mass from the air, not from the soil!",
+  "rolls": [
    {
-    "destination" : "Soil",
-    "weight" : 2,
-    "messages" : [
+    "destination": "Soil",
+    "weight": 2,
+    "messages": [
      "You are CO2 in soil air.",
      "You are a carbon compound within detritus."
     ]
    },
    {
-    "destination" : "Plant",
-    "weight" : 1,
-    "messages" : [
-     "You are taken in by a plan doing photosynthesis."
+    "destination": "Plant",
+    "weight": 1,
+    "messages": [
+     "You are taken in by a plant doing photosynthesis.",
+     "You are absorbed through a plant's root system."
     ]
    },
    {
-    "destination" : "Fossil Fuels",
-    "weight" : 2,
-    "messages" : [
+    "destination": "Fossil Fuels",
+    "weight": 2,
+    "messages": [
      "You are part of dead plant tissue, become trapped in anoxic soil, and with high temperature and pressure you become a fossil fuel."
     ]
    },
    {
-    "destination" : "Atmosphere",
-    "weight" : 1,
-    "messages" : [
+    "destination": "Atmosphere",
+    "weight": 1,
+    "messages": [
      "You diffuse into the sky on a warm breeze."
     ]
    }
   ]
  },
  {
-  "name" : "Plant",
-  "rolls" : [
+  "name": "Plant",
+  "image": "https://kaggle2.blob.core.windows.net/competitions/kaggle/5408/media/bigleaves.jpg",
+  "significance": "Plants are both made out of carbon and fueled by it! Carbon as glucose (C6H12O6) can be used to both store energy as starch and build firm structures (like leaves and stems) as cellulose.",
+  "rolls": [
    {
-    "destination" : "Soil",
-    "weight" : 1,
-    "messages" : [
+    "destination": "Soil",
+    "weight": 1,
+    "messages": [
      "You are in a leaf, but the tree sheds all its leaves."
     ]
    },
    {
-    "destination" : "Plant",
-    "weight" : 3,
-    "messages" : [
+    "destination": "Plant",
+    "weight": 3,
+    "messages": [
      "You are in the cellulose within the xylem in a tree trunk.",
      "You are in starch within the cytoplasm of a root cell in a tree.",
      "You are in sucrose (C12H22O11) within the phloem in a tree branch."
     ]
    },
    {
-    "destination" : "Animal",
-    "weight" : 1,
-    "messages" : [
+    "destination": "Animal",
+    "weight": 1,
+    "messages": [
      "You are in glucose (C6H12O6) within a fruit, and that fruit is eaten by an animal."
     ]
    },
    {
-    "destination" : "Atmosphere",
-    "weight" : 1,
-    "messages" : [
+    "destination": "Atmosphere",
+    "weight": 1,
+    "messages": [
      "You were glucose (C6H12O6) in the leaf, but the leaf cell respired and now you're CO2."
     ]
    }
   ]
  },
  {
-  "name" : "Deep Ocean",
-  "rolls" : [
+  "name": "Deep Ocean",
+  "image": "https://static1.squarespace.com/static/57157d427da24f6b3fa395e4/t/5a73ef49c8302552ab75a7a8/1517547345519/deep.jpg?format=1500w",
+  "significance": "The ocean stores abundant amounts of carbon as CO2! Over 93% of all the carbon in the world is found here.",
+  "rolls": [
    {
-    "destination" : "Deep Ocean",
-    "weight" : 2,
-    "messages" : [
+    "destination": "Deep Ocean",
+    "weight": 2,
+    "messages": [
      "You stay in the deep ocean."
     ]
    },
    {
-    "destination" : "Surface Ocean",
-    "weight" : 3,
-    "messages" : [
+    "destination": "Surface Ocean",
+    "weight": 3,
+    "messages": [
      "You join an upwelling current."
     ]
    },
    {
-    "destination" : "Animal",
-    "weight" : 1,
-    "messages" : [
+    "destination": "Animal",
+    "weight": 1,
+    "messages": [
      "You are swallowed by a dolphin."
     ]
    }
   ]
  },
  {
-  "name" : "Fossil Fuels",
-  "rolls" : [
+  "name": "Fossil Fuels",
+  "image": "https://www.americangeosciences.org/sites/default/files/styles/ci__650_x_430_/public/CI_259_coal_CSRIO_CCBY3.0_180625_1200x800px_0.jpg?itok=SsQaI4DH",
+  "significance": "Dead organisms, buried for millions of years, turn into compact sources of energy like coal, oil, and natural gas! These fuels are very efficient for creating power.",
+  "rolls": [
    {
-    "destination" : "Fossil Fuels",
-    "weight" : 4,
-    "messages" : [
+    "destination": "Fossil Fuels",
+    "weight": 4,
+    "messages": [
      "You are methane (CH4).",
      "You are crude oil, a mixture of substances that is about 85% carbon.",
      "You are coal (C137H97O9).",
@@ -134,9 +145,9 @@
     ]
    },
    {
-    "destination" : "Atmosphere",
-    "weight" : 2,
-    "messages" : [
+    "destination": "Atmosphere",
+    "weight": 2,
+    "messages": [
      "You are pumped out of the ground by humans, burned in a car engine, and are now CO2.",
      "You became rock, underwent subduction, melted, and after a volcanic eruption on Hawaii emerge as CO2."
     ]
@@ -144,54 +155,58 @@
   ]
  },
  {
-  "name" : "Surface Ocean",
-  "rolls" : [
+  "name": "Surface Ocean",
+  "image": "https://oceana.org/sites/default/files/styles/lightbox_full/public/open-ocean_hero.jpg?itok=O5NKj3Kn",
+  "significance": "The ocean stores abundant amounts of carbon as CO2! Over 93% of all the carbon in the world is found here.",
+  "rolls": [
    {
-    "destination" : "Deep Ocean",
-    "weight" : 2,
-    "messages" : [
+    "destination": "Deep Ocean",
+    "weight": 2,
+    "messages": [
      "You join a downwelling current.",
      "You were in a protein within an organism that died and sank to the bottom of the ocean."
     ]
    },
    {
-    "destination" : "Surface Ocean",
-    "weight" : 2,
-    "messages" : [
+    "destination": "Surface Ocean",
+    "weight": 2,
+    "messages": [
      "You are floating in a calm sea."
     ]
    },
    {
-    "destination" : "Atmosphere",
-    "weight" : 2,
-    "messages" : [
+    "destination": "Atmosphere",
+    "weight": 2,
+    "messages": [
      "You move up into the atmosphere with wind and wave action."
     ]
    }
   ]
  },
  {
-  "name" : "Animal",
-  "rolls" : [
+  "name": "Animal",
+  "image": "https://wp-assets.futurism.com/2017/09/pexels-photo-236044-1200x600.jpeg",
+  "significance": "Animals change carbon from glucose (C6H12O6) into carbon dioxide (CO2); that's how we get our energy! Many things in any animal are also made out of carbon.",
+  "rolls": [
    {
-    "destination" : "Animal",
-    "weight" : 2,
-    "messages" : [
+    "destination": "Animal",
+    "weight": 2,
+    "messages": [
      "You are part of a lipid molecule in adipose tissue.",
      "You are part of a food chain because a predator eats the animal you are in."
     ]
    },
    {
-    "destination" : "Soil",
-    "weight" : 1,
-    "messages" : [
+    "destination": "Soil",
+    "weight": 1,
+    "messages": [
      "You are in a carcass in the ground, as the animal that ate you died."
     ]
    },
    {
-    "destination" : "Atmosphere",
+    "destination": "Atmosphere",
     "weight": 3,
-    "messages" : [
+    "messages": [
      "You are exhaled as CO2, because the animal that consumed you did cellular respiration."
     ]
    }

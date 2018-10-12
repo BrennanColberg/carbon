@@ -8,25 +8,28 @@
  */
 
 "use strict";
-!function() {
-	
-	
+! function () {
+
+
 	/**** VARIABLES ****/
-	
+
 	let locations = undefined;
+	let history = []; // with: "location", "molecule", "process", "significance"
 	let index = undefined;
-	
-	
+
+
 	/***** GENERAL TOOLBOX METHODS *****/
-	
+
 	/**
 	 * Boilerplate AJAX GET method, used to query for server files.
 	 * @param {String} url Target URL to query
 	 * @param {Function} onSuccess Function to call when the request comes in
 	 */
 	function ajaxGET(url, onSuccess) {
-		fetch(url, { credentials: "include" })
-			.then(function(r) { 
+		fetch(url, {
+				credentials: "include"
+			})
+			.then(function (r) {
 				if (r.status >= 200 && r.status < 300) return r.text();
 				else return Promise.reject(
 					new Error(r.status + ": " + r.statusText)
@@ -35,7 +38,7 @@
 			.then(onSuccess)
 			.catch(console.log);
 	}
-	
+
 	/**
 	 * DOM element creation shortcut.
 	 * @param {String} tag HTML tag of the new element
@@ -47,7 +50,7 @@
 		if (text) element.textContent = text;
 		return element;
 	}
-	
+
 	/**
 	 * DOM element selection shortcut, inspired by jQuery.
 	 * @param {String} selector CSS selector to query with
@@ -57,29 +60,40 @@
 		let result = document.querySelectorAll(selector);
 		return result.length > 1 ? result : result[0];
 	}
-	
-	
+
+	function show(dom) {
+		dom.classList.remove("hidden");
+	}
+
+	function hide(dom) {
+		dom.classList.add("hidden");
+	}
+
+
 	/***** APPLICATION-SPECIFIC METHODS *****/
-	
+
 	/**
 	 * Connects up buttons, queries for a JSON from which to load information.
 	 */
-	window.addEventListener("load", function() {
+	window.addEventListener("load", function () {
 		ajaxGET("stations.json", load);
-		$("#next").onclick = proceed;
+		$("#back").onclick = back;
+		$("#history").onclick = showHistory;
+		$("#next").onclick = next;
 	});
-	
+
 	/**
 	 * Gets locations from the text of stations.json and starts the program.
 	 * @param {String} json Contents of the JSON file
 	 */
 	function load(json) {
 		locations = JSON.parse(json);
-		goTo(startingIndex());
+		goTo(startingIndex(), true);
 		logHistory(locations[index].name);
+		updateInformation();
 		$("#next").disabled = false;
 	}
-	
+
 	/**
 	 * Chooses a location randomly in which to start the program.
 	 * @return {Number} Integer (index) in bounds [0, locations.length - 1]
@@ -87,53 +101,60 @@
 	function startingIndex() {
 		return Math.floor(Math.random() * locations.length);
 	}
-	
+
 	/**
 	 * Moves the user to a new location.
 	 * @param {Number} newIndex Index of the targeted location.
+	 * @param {Boolean} noDisplay Optional override for auto-displaying info
 	 */
-	function goTo(newIndex) {
+	function goTo(newIndex, noDisplay) {
 		index = newIndex;
-		updateInformation();
+		if (!noDisplay) updateInformation();
 	}
-	
+
 	/**
 	 * Logs an event to the history list.
 	 * @param {String} name Name of the location to log
 	 * @param {[[type]]} message Narrative text to explain movement (optional)
 	 */
 	function logHistory(name, message) {
-		let history = $("#history");
-		// only creates a message if one is given (allows for starting location)
-		// appends message first due to being a fencepost-based system where you
-		// do not yet know how the program will move on
-		if (message) {
-			// creates second-tier UL for the description with a single li
-			// inside (which contains the message)
-			let ul = ce("ul");
-			ul.appendChild(ce("li", message));
-			history.lastChild.appendChild(ul);
-		}
-		// puts name, in bold (strong), inside the history ol
-		let liName = ce("li");
-		let locationSpan = ce("strong", name);
-		liName.appendChild(locationSpan);
-		history.appendChild(liName);
-		// scrolls to bottom of history (otherwise it wouldn't display properly)
-		history.scrollTop = history.scrollHeight;
+		console.log("logging history");
+		let result = {};
+		result.name = name;
+		result.process = message;
+		result.molecule = locations[index].molecule;
+		result.significance = locations[index].significance;
+		result.location = locations[index];
+		console.log(result);
+		history.unshift(result);
 	}
-	
+
+
 	/**
 	 * Moves onwards in time, taking a random step to move towards a different
 	 * location (or, sometimes, to stay in the same location).
 	 */
-	function proceed() {
+	function next() {
 		let roll = randomRoll(locations[index]);
 		let message = randomMessage(roll);
 		goTo(locationIndex(roll.destination));
 		logHistory(roll.destination, message);
 	}
-	
+
+	/**
+	 * Shows the entire history of movements to the user.
+	 */
+	function showHistory() {
+
+	}
+
+	/**
+	 * Goes back a step to the last location.
+	 */
+	function back() {
+
+	}
+
 	/**
 	 * Selects a random location from the potential destinations of a carbon
 	 * atom when travelling away from the given location. Accounts for precise
@@ -162,7 +183,7 @@
 			}
 		}
 	}
-	
+
 	/**
 	 * Chooses a random description for the movement about to occur (as
 	 * prescribed by the given roll).
@@ -172,7 +193,7 @@
 	function randomMessage(roll) {
 		return roll.messages[Math.floor(roll.messages.length * Math.random())];
 	}
-	
+
 	/**
 	 * Gets index of a given location in the stored data.
 	 * @param {Object} location Location of which to find index
@@ -186,16 +207,26 @@
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Fills all elements in the #travel div with information about the current
 	 * and recent locations.
 	 */
 	function updateInformation() {
-		let location = $(".location");
-		for (let i = 0; i < location.length; i++) {
-			location[i].textContent = locations[index].name;
-		}
+		console.log(history);
+		let location = history[0];
+		$("p.location").textContent = location.name;
+		$("h2.process").textContent = location.process;
+		if (location.molecule) {
+			$("p.molecule").textContent = location.molecule;
+			show($("tr.molecule"));
+		} else hide($("tr.molecule"));
+		if (location.significance) {
+			$("p.significance").textContent = location.significance;
+			show($("tr.significance"));
+		} else hide($("tr.significance"));
+		console.log($("body"));
+		$("body").style.backgroundImage = "url('" + location.location.image + "')";
 	}
-	
+
 }();
