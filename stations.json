@@ -1,7 +1,7 @@
 [
  {
   "name": "Atmosphere",
-  "image": "http://jonvilma.com/images/sky-4.jpg",
+  "image": "/images/atmosphere.webp",
   "significance": "Carbon atoms are stored here as carbon dioxide (CO2), which has a large effect on global temperatures despite only comprising 0.04% of the atmosphere.",
   "rolls": [
    {
@@ -29,7 +29,7 @@
  },
  {
   "name": "Soil",
-  "image": "https://cdn.arstechnica.net/wp-content/uploads/2016/12/GettyImages-457102582-800x534.jpg",
+  "image": "/images/soil.jpg",
   "significance": "Dead organisms often end up in the soil, where they are broken down by decomposers. Contrary to common belief, plants get most of their mass from the air, not from the soil!",
   "rolls": [
    {
@@ -66,7 +66,7 @@
  },
  {
   "name": "Plant",
-  "image": "https://kaggle2.blob.core.windows.net/competitions/kaggle/5408/media/bigleaves.jpg",
+  "image": "/images/plant.webp",
   "significance": "Plants are both made out of carbon and fueled by it! Carbon as glucose (C6H12O6) can be used to both store energy as starch and build firm structures (like leaves and stems) as cellulose.",
   "rolls": [
    {
@@ -103,7 +103,7 @@
  },
  {
   "name": "Deep Ocean",
-  "image": "https://static1.squarespace.com/static/57157d427da24f6b3fa395e4/t/5a73ef49c8302552ab75a7a8/1517547345519/deep.jpg?format=1500w",
+  "image": "/images/deep-ocean.jpg",
   "significance": "The ocean stores abundant amounts of carbon as CO2! Over 93% of all the carbon in the world is found here.",
   "rolls": [
    {
@@ -131,7 +131,7 @@
  },
  {
   "name": "Fossil Fuels",
-  "image": "https://www.americangeosciences.org/sites/default/files/styles/ci__650_x_430_/public/CI_259_coal_CSRIO_CCBY3.0_180625_1200x800px_0.jpg?itok=SsQaI4DH",
+  "image": "/images/fossil-fuels.jpg",
   "significance": "Dead organisms, buried for millions of years, turn into compact sources of energy like coal, oil, and natural gas! These fuels are very efficient for creating power.",
   "rolls": [
    {
@@ -156,7 +156,7 @@
  },
  {
   "name": "Surface Ocean",
-  "image": "https://oceana.org/sites/default/files/styles/lightbox_full/public/open-ocean_hero.jpg?itok=O5NKj3Kn",
+  "image": "/images/surface-ocean.png",
   "significance": "The ocean stores abundant amounts of carbon as CO2! Over 93% of all the carbon in the world is found here.",
   "rolls": [
    {
@@ -185,7 +185,7 @@
  },
  {
   "name": "Animal",
-  "image": "https://wp-assets.futurism.com/2017/09/pexels-photo-236044-1200x600.jpeg",
+  "image": "/images/animal.jpeg",
   "significance": "Animals change carbon from glucose (C6H12O6) into carbon dioxide (CO2); that's how we get our energy! Many things in any animal are also made out of carbon.",
   "rolls": [
    {
